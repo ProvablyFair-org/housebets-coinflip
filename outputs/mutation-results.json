@@ -1,0 +1,668 @@
+{
+  "about": "npm run mutate (scripts/mutate.mjs) over tests/mutations.json; a mutation is killed when its named check leaves the unmutated control copy's status",
+  "registrySha256": "01e48a409e578649bc580ec136a56abb68dcb31db9c1411e063a5016958aeee2",
+  "sourcesSha256": "f6c48bdb9d748a205ea6d8d0c4edd12cb252f7142c5b06344251d44b46214df2",
+  "node": "22.23.1",
+  "total": 64,
+  "killed": 64,
+  "survivors": [],
+  "uncoveredSteps": [],
+  "control": {
+    "ok": true,
+    "exit": 0,
+    "mismatches": []
+  },
+  "results": [
+    {
+      "id": "M01",
+      "kills": "COINFLIP-01",
+      "what": "swap a revealed seed for another (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M02a",
+      "kills": "COINFLIP-02",
+      "what": "break one forward link in Phase A (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M02b",
+      "kills": "COINFLIP-02",
+      "what": "break the tail's link to the pair active after the capture (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M02c",
+      "kills": "COINFLIP-02",
+      "what": "a Phase C chain with no pre-capture anchor (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M03",
+      "kills": "COINFLIP-03",
+      "what": "one bet answered under another hash (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M04",
+      "kills": "COINFLIP-04",
+      "what": "repeat a nonce in an epoch (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M05a",
+      "kills": "COINFLIP-05",
+      "what": "drop one bet from a whole epoch (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M05b",
+      "kills": "COINFLIP-05",
+      "what": "drop one bet from the tail file (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M05c",
+      "kills": "COINFLIP-05",
+      "what": "a population constant that agrees with a shrunk tail",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M06a",
+      "kills": "COINFLIP-06",
+      "what": "a Phase D epoch whose seed is not the player-set one (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M06b",
+      "kills": "COINFLIP-06",
+      "what": "derivation that ignores the client seed",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M07",
+      "kills": "COINFLIP-07",
+      "what": "one served flip sequence with its first side changed (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M08",
+      "kills": "COINFLIP-08",
+      "what": "a side rule that reads the low bit instead of the top bit",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M09",
+      "kills": "COINFLIP-09",
+      "what": "a published vector misquoted",
+      "status": "GAP",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M10a",
+      "kills": "COINFLIP-10",
+      "what": "target-game win rule made strict (exactly t landed loses), against the published text",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M10b",
+      "kills": "COINFLIP-10",
+      "what": "the server's matched field forged in the bet and its answer (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M11",
+      "kills": "COINFLIP-11",
+      "what": "a payout forged up by 1e-8 in the bet and its server record (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M12a",
+      "kills": "COINFLIP-12",
+      "what": "an elevated stake that is not the declared one (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M12b",
+      "kills": "COINFLIP-12",
+      "what": "a $10-set bet at another target (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M13a",
+      "kills": "COINFLIP-13",
+      "what": "a served multiplier off by 1e-4 (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M13b",
+      "kills": "COINFLIP-13",
+      "what": "a published multiplierTable cell misquoted",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M13c",
+      "kills": "COINFLIP-13",
+      "what": "the operator's winChance field forged (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M14",
+      "kills": "COINFLIP-14",
+      "what": "a published minimum target that breaks the 98 % cap (re-pinned)",
+      "status": "FLAG",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M16",
+      "kills": "COINFLIP-16",
+      "what": "a bet-history row that disagrees with the bet (re-pinned)",
+      "status": "FLAG",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M17",
+      "kills": "COINFLIP-17",
+      "what": "a published RNG message that carries the calls (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M18",
+      "kills": "COINFLIP-18",
+      "what": "a coins x flips law with one survivor over-weighted",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M19",
+      "kills": "COINFLIP-19",
+      "what": "the published figure raised in E02 itself (rulesEdge1 99% -> 99.5%), re-pinned, the committed RTP table NOT regenerated: the exhibit and the table disagree, a reproduction failure",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M19e",
+      "kills": "COINFLIP-19",
+      "what": "the published figure raised in E02 itself (rulesEdge1 99% -> 99.5%), re-pinned, the RTP table and the verification record regenerated and re-pinned: must end RTP FIGURE OVERSTATED, exit 5",
+      "status": "OVERSTATED",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "RTP FIGURE OVERSTATED",
+      "exit": 5,
+      "expectExit": 5
+    },
+    {
+      "id": "M19l",
+      "kills": "COINFLIP-19",
+      "what": "the published figure raised in the live copy only (E08 rulesEdge1 99% -> 99.5%), re-pinned, the RTP table and the verification record regenerated and re-pinned: the highest figure binds, RTP FIGURE OVERSTATED, exit 5",
+      "status": "OVERSTATED",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "RTP FIGURE OVERSTATED",
+      "exit": 5,
+      "expectExit": 5
+    },
+    {
+      "id": "M19s",
+      "kills": "COINFLIP-19",
+      "what": "the payout law of one setting no captured bet won (target n=9 t=8) lowered from 50.688x to 49x (RTP 95.70 %), the census, the RTP table and the verification record regenerated and re-pinned: a miss on one setting must end RTP FIGURE OVERSTATED, exit 5, never Conditional Pass",
+      "status": "OVERSTATED",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "RTP FIGURE OVERSTATED",
+      "exit": 5,
+      "expectExit": 5
+    },
+    {
+      "id": "M20a",
+      "kills": "COINFLIP-20",
+      "what": "a forged census tails count (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M20b",
+      "kills": "COINFLIP-20",
+      "what": "a cheaper Pass 1 (100 seeds) regenerated and re-pinned",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M20c",
+      "kills": "COINFLIP-20",
+      "what": "cheaper bands (50 seeds, 500,000 rounds per setting instead of 1,000,000) regenerated and re-pinned",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M21a",
+      "kills": "COINFLIP-21",
+      "what": "a Pass 2 early window that is not the captured depth (40 of 50 nonces), regenerated and re-pinned",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M21c",
+      "kills": "COINFLIP-21",
+      "what": "Pass 2 narrowed back to the Phase A seeds (the tail, C, the $10 set and D left out), regenerated and re-pinned",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M21b",
+      "kills": "COINFLIP-21",
+      "what": "a forged Pass 2 epoch return (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M26",
+      "kills": "COINFLIP-26",
+      "what": "a dataset byte changed, not re-pinned",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M26u",
+      "kills": "COINFLIP-26",
+      "what": "a user id that is not redacted, re-pinned",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M27",
+      "kills": "COINFLIP-27",
+      "what": "a committed RTP table edited and re-pinned",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M15r",
+      "kills": "COINFLIP-15",
+      "what": "a planned setting the server refused with a non-transient answer (one transient refusal relabelled in meta.rejected, re-pinned): operator-origin, not a capture gap",
+      "status": "FLAG",
+      "baseline": "FLAG*",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M07t",
+      "kills": "COINFLIP-07",
+      "what": "a tail flip string changed in its first flip, in the copy and the server answer (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M11t",
+      "kills": "COINFLIP-11",
+      "what": "a tail payout +1e-8 in the bet, its round record and the server answer (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M11g",
+      "kills": "COINFLIP-11",
+      "what": "a payout given a 9th decimal (0.01555283 -> 0.015552834) in the bet, its round record and the server answer (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M07n",
+      "kills": "COINFLIP-07",
+      "what": "the server answer nonce forged, the copy left intact (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M07c",
+      "kills": "COINFLIP-07",
+      "what": "the server answer client seed forged, the copy left intact (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M11s",
+      "kills": "COINFLIP-11",
+      "what": "the server answer payout forged +1e-8, the copy and round record left intact (re-pinned)",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M16a",
+      "kills": "COINFLIP-16",
+      "what": "E05 ledger line with an impossible entry count (99999 != 86966 + 0 + 13) (re-pinned)",
+      "status": "FLAG",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M16b",
+      "kills": "COINFLIP-16",
+      "what": "E05 balance before changed to 123.45678900 (re-pinned)",
+      "status": "FLAG",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M16c",
+      "kills": "COINFLIP-16",
+      "what": "E05 coin flip Phase C row paid +1e-6 with net, TOTAL and the wallet after moved to stay arithmetically consistent (re-pinned); only the package-computed sums can catch it",
+      "status": "FLAG",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M07d",
+      "kills": "COINFLIP-07",
+      "what": "the COINFLIP-07 step deleted from the verifier (its record() call removed), the verification record regenerated and re-pinned: must end INCOMPLETE, exit 3",
+      "status": "NOT_RUN",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "INCOMPLETE — steps not run",
+      "exit": 3,
+      "expectExit": 3
+    },
+    {
+      "id": "M07x",
+      "kills": "COINFLIP-07",
+      "what": "the COINFLIP-07 step deleted from the verifier AND its row deleted from src/profile-map.ts, the record regenerated and re-pinned: the vendored profile still lists it, so INCOMPLETE, exit 3",
+      "status": "NOT_RUN",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "INCOMPLETE — the step list is not bound to the profile",
+      "exit": 3,
+      "expectExit": 3
+    },
+    {
+      "id": "M07r",
+      "kills": "COINFLIP-07",
+      "what": "COINFLIP-07 relabelled INFORMATIONAL in src/profile-map.ts, the record regenerated and re-pinned: the binding to the vendored profile withholds the verdict, INCOMPLETE, exit 3",
+      "status": "INFO",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "INCOMPLETE — the step list is not bound to the profile",
+      "exit": 3,
+      "expectExit": 3
+    },
+    {
+      "id": "M07f",
+      "kills": "COINFLIP-07",
+      "what": "COINFLIP-07 relabelled INFORMATIONAL AND a tail flip sequence forged in the copy and the server answer (re-pinned), the record regenerated and re-pinned: never a pass (exit 3 or 1)",
+      "status": "INFO",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1,
+      "expectExit": [
+        3,
+        1
+      ]
+    },
+    {
+      "id": "M16x",
+      "kills": "COINFLIP-16",
+      "what": "one bet-history row's payout forged (re-pinned), the verification record regenerated and re-pinned: an operator-origin FLAG must end Conditional Pass, exit 2",
+      "status": "FLAG",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "PROVABLY FAIR — Conditional Pass",
+      "exit": 2,
+      "expectExit": 2
+    },
+    {
+      "id": "M26e1",
+      "kills": "COINFLIP-26",
+      "what": "E01's formulas and house edge changed to 0.98 / 0.02, re-pinned: E01 no longer equals the code's coefficient nor the captured preflight answer",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M14e",
+      "kills": "COINFLIP-14",
+      "what": "E03's wallet max win set to 5 USDT, below the largest captured payout, re-pinned: a payout above the published max win is an operator-origin FLAG",
+      "status": "FLAG",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M12e",
+      "kills": "COINFLIP-12",
+      "what": "E03's wallet minimum doubled (0.01000311 -> 0.02000622), re-pinned: Phase C is no longer 100 × the published minimum",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M04o",
+      "kills": "COINFLIP-04",
+      "what": "the bet with nonce 5 in epoch 0 given the placement index -1, re-pinned: the nonces no longer rise in placement order",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M23",
+      "kills": "COINFLIP-23",
+      "what": "an S5 row renamed in MANIFEST.md (S5-1 'Replay protection' -> 'Seed substitution', the old row name of this package)",
+      "status": "GAP",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M01n",
+      "kills": "COINFLIP-01",
+      "what": "every revealed server seed in Phase A set to null (re-pinned): the hash check scores FAIL and every row still prints",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M05s",
+      "kills": "COINFLIP-05",
+      "what": "Phase A cut to its first 80 % (bets 6550 -> 5240), every count in the file that read 6550 made to agree (re-pinned): the population check scores FAIL and every row still prints",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M20d",
+      "kills": "COINFLIP-20",
+      "what": "outputs/simulation-results.json deleted: Pass 1 has no census to equal, scores FAIL, and every row still prints",
+      "status": "FAIL",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M24a",
+      "kills": "COINFLIP-24",
+      "what": "site-verifier/derive.js: the side rule inverted inside the module (floor(u / 2^32 × 2) -> 1 − floor(u / 2^32 × 2), heads and tails swapped), the file re-pinned in src/artifact-pins.ts and RELEASE-MANIFEST.json and its sha256 replaced in MANIFEST.md and README.md: every pin and quoted hash agrees, and the side-by-side run with src/rng.ts on the captured bets catches it",
+      "status": "GAP",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    },
+    {
+      "id": "M24b",
+      "kills": "COINFLIP-24",
+      "what": "the pin of site-verifier/derive.js in src/artifact-pins.ts (SITE_VERIFIER_PIN) no longer the sha256 of the shipped module, the module itself untouched",
+      "status": "GAP",
+      "baseline": "PASS",
+      "killed": true,
+      "verdict": "NOT PROVABLY FAIR",
+      "exit": 1
+    }
+  ]
+}

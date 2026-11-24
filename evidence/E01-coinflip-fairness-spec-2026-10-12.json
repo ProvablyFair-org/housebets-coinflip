@@ -1,0 +1,377 @@
+{
+  "exhibit": "E01",
+  "what": "HouseBets House Games coin flip: the server's published fairness spec (GET /housegames/coinflip/fairness)",
+  "source": {
+    "file": "data/captured/housebets-coinflip-sp1-6584bets.redacted.json",
+    "sha256": "ff4f0a706d7caad1f4a4ea53a96c842407a18b9ab12ccd1b2e480af7782f86ac",
+    "field": "meta.preflight.fairness"
+  },
+  "sameBodyEarlierRead": {
+    "file": "capture-2026-10-12/coinflip/housebets-coinflip-sp1-552bets.json (HouseBets workshop)",
+    "sha256": "7f2e21667e1105ba0ca5ddb46f7971d2a8cb12644ede23240d756864c8de3048",
+    "field": "meta.preflight.fairness",
+    "at": "2026-10-12T13:32:43.532Z"
+  },
+  "answer": {
+    "path": "/coinflip/fairness",
+    "at": "2026-10-12T17:04:46.538Z",
+    "body": {
+      "version": "canonical",
+      "hash": "HMAC-SHA256",
+      "key": "serverSeed",
+      "message": "clientSeed:nonce:block",
+      "bytesPerDigest": 32,
+      "bytesPerDraw": 4,
+      "byteOrder": "big-endian",
+      "drawBits": 32,
+      "sideRule": "side = floor(u / 2^32 * 2): 0 = H, 1 = T",
+      "drawRule": "flip i reads draw i (bytes 4i..4i+3, block floor(i/8))",
+      "houseEdge": 0.01,
+      "multiplier": "floor4(0.99 * 2^n / S(n, target)), S(n, k) = sum_{i>=k} C(n, i); = 0.99 * 2^n when target = n",
+      "maxFlips": 10,
+      "minFlips": 1,
+      "winRule": "at least target of the n calls land as called (target = n unless chosen: every flip)",
+      "minTargets": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        3,
+        3
+      ],
+      "maxWinChance": 0.98,
+      "multiplierTable": [
+        [
+          1.98
+        ],
+        [
+          1.32,
+          3.96
+        ],
+        [
+          1.1314,
+          1.98,
+          7.92
+        ],
+        [
+          1.056,
+          1.44,
+          3.168,
+          15.84
+        ],
+        [
+          1.0219,
+          1.2184,
+          1.98,
+          5.28,
+          31.68
+        ],
+        [
+          0,
+          1.1115,
+          1.5085,
+          2.88,
+          9.0514,
+          63.36
+        ],
+        [
+          0,
+          1.056,
+          1.28,
+          1.98,
+          4.3696,
+          15.84,
+          126.72
+        ],
+        [
+          0,
+          1.026,
+          1.1572,
+          1.5548,
+          2.7251,
+          6.8497,
+          28.16,
+          253.44
+        ],
+        [
+          0,
+          0,
+          1.0877,
+          1.3269,
+          1.98,
+          3.899,
+          11.0191,
+          50.688,
+          506.88
+        ],
+        [
+          0,
+          0,
+          1.0472,
+          1.1954,
+          1.5889,
+          2.6263,
+          5.76,
+          18.1028,
+          92.16,
+          1013.76
+        ]
+      ],
+      "winChanceTable": [
+        [
+          0.5
+        ],
+        [
+          0.75,
+          0.25
+        ],
+        [
+          0.875,
+          0.5,
+          0.125
+        ],
+        [
+          0.9375,
+          0.6875,
+          0.3125,
+          0.0625
+        ],
+        [
+          0.96875,
+          0.8125,
+          0.5,
+          0.1875,
+          0.03125
+        ],
+        [
+          0,
+          0.890625,
+          0.65625,
+          0.34375,
+          0.109375,
+          0.015625
+        ],
+        [
+          0,
+          0.9375,
+          0.7734375,
+          0.5,
+          0.2265625,
+          0.0625,
+          0.0078125
+        ],
+        [
+          0,
+          0.96484375,
+          0.85546875,
+          0.63671875,
+          0.36328125,
+          0.14453125,
+          0.03515625,
+          0.00390625
+        ],
+        [
+          0,
+          0,
+          0.91015625,
+          0.74609375,
+          0.5,
+          0.25390625,
+          0.08984375,
+          0.01953125,
+          0.001953125
+        ],
+        [
+          0,
+          0,
+          0.9453125,
+          0.828125,
+          0.623046875,
+          0.376953125,
+          0.171875,
+          0.0546875,
+          0.0107421875,
+          0.0009765625
+        ]
+      ],
+      "multiRule": "multi toss: the stake is split over the n coins; every coin that lands as called pays its share at 1.98x",
+      "multiMultiplier": "floor4(1.98 * h / n), h = coins landed as called (2 <= n <= 10)",
+      "multiMinFlips": 2,
+      "multiTable": [
+        [
+          0,
+          0.99,
+          1.98
+        ],
+        [
+          0,
+          0.66,
+          1.32,
+          1.98
+        ],
+        [
+          0,
+          0.495,
+          0.99,
+          1.485,
+          1.98
+        ],
+        [
+          0,
+          0.396,
+          0.792,
+          1.188,
+          1.584,
+          1.98
+        ],
+        [
+          0,
+          0.33,
+          0.66,
+          0.99,
+          1.32,
+          1.65,
+          1.98
+        ],
+        [
+          0,
+          0.2828,
+          0.5657,
+          0.8485,
+          1.1314,
+          1.4142,
+          1.6971,
+          1.98
+        ],
+        [
+          0,
+          0.2475,
+          0.495,
+          0.7425,
+          0.99,
+          1.2375,
+          1.485,
+          1.7325,
+          1.98
+        ],
+        [
+          0,
+          0.22,
+          0.44,
+          0.66,
+          0.88,
+          1.1,
+          1.32,
+          1.54,
+          1.76,
+          1.98
+        ],
+        [
+          0,
+          0.198,
+          0.396,
+          0.594,
+          0.792,
+          0.99,
+          1.188,
+          1.386,
+          1.584,
+          1.782,
+          1.98
+        ]
+      ],
+      "multiProfitChance": [
+        0.25,
+        0.5,
+        0.3125,
+        0.5,
+        0.34375,
+        0.5,
+        0.36328125,
+        0.5,
+        0.376953125
+      ],
+      "coinsRule": "coins x flips: C coins (2..10) each flip the F-letter calls pattern in a row; coin i reads draws i*F .. i*F+F-1; every coin whose F flips all land as called pays its share at 0.99 * 2^F",
+      "coinsMultiplier": "floor4(0.99 * 2^F * h / C), h = coins that survived all F flips",
+      "summary": "Every flip is derived from HMAC-SHA256 keyed with the server seed, over the message clientSeed:nonce:block. Flip i reads draw i: four bytes at offset 4i of the stream, as a big-endian unsigned 32-bit integer u; the block is the byte cursor divided by 32, so flips 1..8 come from block 0 and flips 9..10 from block 1. The side is side = floor(u / 2^32 * 2): 0 = H, 1 = T. A round of n calls and a target wins iff at least target of the n calls land as called (target = n unless chosen: every flip); in the target game a win pays floor4(0.99 * 2^n / S(n, target)), S(n, k) = sum_{i>=k} C(n, i); = 0.99 * 2^n when target = n (a 1% edge: the return is at most 99% at every n and target, exactly 99% where the multiplier is a short number) and a loss pays 0. The smallest target at each n keeps the win chance at or under 98%. In Multi Toss the same flips settle a different bet: multi toss: the stake is split over the n coins; every coin that lands as called pays its share at 1.98x, so h of n coins pay floor4(1.98 * h / n), h = coins landed as called (2 <= n <= 10) (each coin is an even-money bet at 99%, so the round returns at most 99%). With coins set, coins x flips: C coins (2..10) each flip the F-letter calls pattern in a row; coin i reads draws i*F .. i*F+F-1; every coin whose F flips all land as called pays its share at 0.99 * 2^F, so the round pays floor4(0.99 * 2^F * h / C), h = coins that survived all F flips (each coin is a streak bet at exactly 99%, so the round returns at most 99%). This is the standard Coin Flip formula: any public verifier that reads the HMAC stream and takes the top bit of each draw prints the same flips. The server seed is committed up front by its SHA-256 hash and revealed when you rotate, so a result can never be changed after the fact.",
+      "vectors": [
+        {
+          "serverSeed": "housebets-demo-server-seed-0001",
+          "clientSeed": "demo-client",
+          "nonce": 1,
+          "draws": [
+            3067352357,
+            880954808,
+            1637878786,
+            1213675087,
+            2326647103,
+            481855596,
+            869634276,
+            4138718340,
+            46131377,
+            3723417200
+          ],
+          "flips": "THHHTHHTHT"
+        },
+        {
+          "serverSeed": "housebets-demo-server-seed-0001",
+          "clientSeed": "demo-client",
+          "nonce": 2,
+          "draws": [
+            3513789633,
+            3704205235,
+            4082071176,
+            3974859369,
+            1834324468,
+            2966423167,
+            1756594492,
+            326666741,
+            4018305093,
+            2368563117
+          ],
+          "flips": "TTTTHTHHTT"
+        },
+        {
+          "serverSeed": "housebets-demo-server-seed-0001",
+          "clientSeed": "demo-client",
+          "nonce": 3,
+          "draws": [
+            3992373399,
+            3852400509,
+            2969170821,
+            4161949375,
+            2510937394,
+            4245317386,
+            1949181640,
+            1567307363,
+            823558778,
+            3257615408
+          ],
+          "flips": "TTTTTTHHHT"
+        },
+        {
+          "serverSeed": "5a1f7d2c9e4b8a3f6d0c2b5e8f1a4d7c0b3e6f9a2d5c8b1e4f7a0d3c6b9e2f5a",
+          "clientSeed": "housebets",
+          "nonce": 1,
+          "draws": [
+            2685149531,
+            1108199734,
+            1000979962,
+            1862519711,
+            2284294031,
+            2871666960,
+            2441563412,
+            3986912474,
+            2926435096,
+            4100296077
+          ],
+          "flips": "THHHTTTTTT"
+        }
+      ]
+    }
+  }
+}

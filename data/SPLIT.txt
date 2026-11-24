@@ -1,0 +1,5 @@
+# Phase A split (src/split.ts via scripts/split-whole-epochs.mjs), re-run by the -05 check. Input: the shipped captured
+# file, i.e. the as-captured file with the audit account's user id redacted (data/REDACTION.txt gives the as-captured sha256).
+captured    housebets-coinflip-sp1-6584bets.redacted.json ff4f0a706d7caad1f4a4ea53a96c842407a18b9ab12ccd1b2e480af7782f86ac
+primary     housebets-coinflip-phaseA-6550bets.json c7e747f1e41ddd8a09db7b9e4cabb6c12580762f583d98361e708bc734f8fee7
+tail        housebets-coinflip-phaseA-tail-34bets.json b71953edb36a729e502fbf084172db76f01bb0a185005f3c45037d9e578fa18d

@@ -1,0 +1,892 @@
+{
+  "exhibit": "E07",
+  "what": "Requests the server refused: the 1-coin multi toss of the 12 Oct capture (every one refused) and the transient refusals of the full capture",
+  "source": {
+    "file": "capture-2026-10-12/coinflip/housebets-coinflip-sp1-552bets.json (HouseBets workshop)",
+    "sha256": "7f2e21667e1105ba0ca5ddb46f7971d2a8cb12644ede23240d756864c8de3048",
+    "field": "meta.rejected"
+  },
+  "multiTossOneCoin": {
+    "requestShape": "POST /housegames/coinflip/bet {calls: <n letters, one per coin>, amount, currency, mode: \"multi\", coins: 1} (rig/coinflip/capture-hb-coinflip.mjs; the game page never sends coins < 2)",
+    "rejected": [
+      {
+        "planIdx": 10,
+        "cls": "multi-n5",
+        "setting": {
+          "cls": "multi-n5",
+          "kind": "multi",
+          "n": 5,
+          "apiOnly": true,
+          "calls": "HHHHT"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:32:49.855Z"
+      },
+      {
+        "planIdx": 31,
+        "cls": "multi-n5",
+        "setting": {
+          "cls": "multi-n5",
+          "kind": "multi",
+          "n": 5,
+          "apiOnly": true,
+          "calls": "THTTH"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:32:57.002Z"
+      },
+      {
+        "planIdx": 38,
+        "cls": "multi-n6",
+        "setting": {
+          "cls": "multi-n6",
+          "kind": "multi",
+          "n": 6,
+          "apiOnly": true,
+          "calls": "HTTHTH"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:32:59.343Z"
+      },
+      {
+        "planIdx": 46,
+        "cls": "multi-n7",
+        "setting": {
+          "cls": "multi-n7",
+          "kind": "multi",
+          "n": 7,
+          "apiOnly": true,
+          "calls": "THHTHHH"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:33:01.926Z"
+      },
+      {
+        "planIdx": 86,
+        "cls": "multi-n10",
+        "setting": {
+          "cls": "multi-n10",
+          "kind": "multi",
+          "n": 10,
+          "apiOnly": true,
+          "calls": "TTHHTTHTHH"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:33:17.832Z"
+      },
+      {
+        "planIdx": 87,
+        "cls": "multi-n6",
+        "setting": {
+          "cls": "multi-n6",
+          "kind": "multi",
+          "n": 6,
+          "apiOnly": true,
+          "calls": "HTHTTH"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:33:18.066Z"
+      },
+      {
+        "planIdx": 109,
+        "cls": "multi-n2",
+        "setting": {
+          "cls": "multi-n2",
+          "kind": "multi",
+          "n": 2,
+          "apiOnly": true,
+          "calls": "HT"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:33:27.791Z"
+      },
+      {
+        "planIdx": 114,
+        "cls": "multi-n3",
+        "setting": {
+          "cls": "multi-n3",
+          "kind": "multi",
+          "n": 3,
+          "apiOnly": true,
+          "calls": "THT"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:33:29.447Z"
+      },
+      {
+        "planIdx": 118,
+        "cls": "multi-n3",
+        "setting": {
+          "cls": "multi-n3",
+          "kind": "multi",
+          "n": 3,
+          "apiOnly": true,
+          "calls": "TTH"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:33:30.681Z"
+      },
+      {
+        "planIdx": 137,
+        "cls": "multi-n7",
+        "setting": {
+          "cls": "multi-n7",
+          "kind": "multi",
+          "n": 7,
+          "apiOnly": true,
+          "calls": "TTTHHHH"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:33:37.371Z"
+      },
+      {
+        "planIdx": 155,
+        "cls": "multi-n5",
+        "setting": {
+          "cls": "multi-n5",
+          "kind": "multi",
+          "n": 5,
+          "apiOnly": true,
+          "calls": "HTTTT"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:33:44.168Z"
+      },
+      {
+        "planIdx": 211,
+        "cls": "multi-n4",
+        "setting": {
+          "cls": "multi-n4",
+          "kind": "multi",
+          "n": 4,
+          "apiOnly": true,
+          "calls": "HTTT"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:34:07.536Z"
+      },
+      {
+        "planIdx": 233,
+        "cls": "multi-n8",
+        "setting": {
+          "cls": "multi-n8",
+          "kind": "multi",
+          "n": 8,
+          "apiOnly": true,
+          "calls": "HHTTHHTT"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:34:15.911Z"
+      },
+      {
+        "planIdx": 235,
+        "cls": "multi-n8",
+        "setting": {
+          "cls": "multi-n8",
+          "kind": "multi",
+          "n": 8,
+          "apiOnly": true,
+          "calls": "HTTHHHHT"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:34:16.473Z"
+      },
+      {
+        "planIdx": 252,
+        "cls": "multi-n3",
+        "setting": {
+          "cls": "multi-n3",
+          "kind": "multi",
+          "n": 3,
+          "apiOnly": true,
+          "calls": "TTH"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:34:22.327Z"
+      },
+      {
+        "planIdx": 259,
+        "cls": "multi-n4",
+        "setting": {
+          "cls": "multi-n4",
+          "kind": "multi",
+          "n": 4,
+          "apiOnly": true,
+          "calls": "THTH"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:34:24.579Z"
+      },
+      {
+        "planIdx": 262,
+        "cls": "multi-n9",
+        "setting": {
+          "cls": "multi-n9",
+          "kind": "multi",
+          "n": 9,
+          "apiOnly": true,
+          "calls": "HHTTHTHTH"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:34:25.466Z"
+      },
+      {
+        "planIdx": 263,
+        "cls": "multi-n2",
+        "setting": {
+          "cls": "multi-n2",
+          "kind": "multi",
+          "n": 2,
+          "apiOnly": true,
+          "calls": "TH"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:34:25.695Z"
+      },
+      {
+        "planIdx": 270,
+        "cls": "multi-n7",
+        "setting": {
+          "cls": "multi-n7",
+          "kind": "multi",
+          "n": 7,
+          "apiOnly": true,
+          "calls": "TTTTHHT"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:34:29.709Z"
+      },
+      {
+        "planIdx": 289,
+        "cls": "multi-n8",
+        "setting": {
+          "cls": "multi-n8",
+          "kind": "multi",
+          "n": 8,
+          "apiOnly": true,
+          "calls": "THHHTHHH"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:34:36.745Z"
+      },
+      {
+        "planIdx": 318,
+        "cls": "multi-n8",
+        "setting": {
+          "cls": "multi-n8",
+          "kind": "multi",
+          "n": 8,
+          "apiOnly": true,
+          "calls": "HHHTTTHT"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:34:47.195Z"
+      },
+      {
+        "planIdx": 320,
+        "cls": "multi-n6",
+        "setting": {
+          "cls": "multi-n6",
+          "kind": "multi",
+          "n": 6,
+          "apiOnly": true,
+          "calls": "THHTHH"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:34:47.793Z"
+      },
+      {
+        "planIdx": 351,
+        "cls": "multi-n7",
+        "setting": {
+          "cls": "multi-n7",
+          "kind": "multi",
+          "n": 7,
+          "apiOnly": true,
+          "calls": "HHHHTTT"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:34:59.957Z"
+      },
+      {
+        "planIdx": 379,
+        "cls": "multi-n10",
+        "setting": {
+          "cls": "multi-n10",
+          "kind": "multi",
+          "n": 10,
+          "apiOnly": true,
+          "calls": "THTHHHHHHT"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:35:10.896Z"
+      },
+      {
+        "planIdx": 413,
+        "cls": "multi-n10",
+        "setting": {
+          "cls": "multi-n10",
+          "kind": "multi",
+          "n": 10,
+          "apiOnly": true,
+          "calls": "HTTHHHHTHH"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:35:22.943Z"
+      },
+      {
+        "planIdx": 453,
+        "cls": "multi-n2",
+        "setting": {
+          "cls": "multi-n2",
+          "kind": "multi",
+          "n": 2,
+          "apiOnly": true,
+          "calls": "HH"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:35:38.467Z"
+      },
+      {
+        "planIdx": 472,
+        "cls": "multi-n9",
+        "setting": {
+          "cls": "multi-n9",
+          "kind": "multi",
+          "n": 9,
+          "apiOnly": true,
+          "calls": "HTTTTHHHH"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:35:45.713Z"
+      },
+      {
+        "planIdx": 474,
+        "cls": "multi-n6",
+        "setting": {
+          "cls": "multi-n6",
+          "kind": "multi",
+          "n": 6,
+          "apiOnly": true,
+          "calls": "TTTHTH"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:35:46.276Z"
+      },
+      {
+        "planIdx": 481,
+        "cls": "multi-n9",
+        "setting": {
+          "cls": "multi-n9",
+          "kind": "multi",
+          "n": 9,
+          "apiOnly": true,
+          "calls": "HHHTTTHTH"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:35:50.136Z"
+      },
+      {
+        "planIdx": 493,
+        "cls": "multi-n10",
+        "setting": {
+          "cls": "multi-n10",
+          "kind": "multi",
+          "n": 10,
+          "apiOnly": true,
+          "calls": "HTTHHHTHTH"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:35:54.465Z"
+      },
+      {
+        "planIdx": 497,
+        "cls": "multi-n5",
+        "setting": {
+          "cls": "multi-n5",
+          "kind": "multi",
+          "n": 5,
+          "apiOnly": true,
+          "calls": "TTTTT"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:35:55.699Z"
+      },
+      {
+        "planIdx": 511,
+        "cls": "multi-n4",
+        "setting": {
+          "cls": "multi-n4",
+          "kind": "multi",
+          "n": 4,
+          "apiOnly": true,
+          "calls": "HHHH"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:36:00.576Z"
+      },
+      {
+        "planIdx": 517,
+        "cls": "multi-n3",
+        "setting": {
+          "cls": "multi-n3",
+          "kind": "multi",
+          "n": 3,
+          "apiOnly": true,
+          "calls": "TTH"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:36:05.015Z"
+      },
+      {
+        "planIdx": 521,
+        "cls": "multi-n9",
+        "setting": {
+          "cls": "multi-n9",
+          "kind": "multi",
+          "n": 9,
+          "apiOnly": true,
+          "calls": "TTTTTHHHT"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:36:06.348Z"
+      },
+      {
+        "planIdx": 563,
+        "cls": "multi-n4",
+        "setting": {
+          "cls": "multi-n4",
+          "kind": "multi",
+          "n": 4,
+          "apiOnly": true,
+          "calls": "HTTT"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:36:24.054Z"
+      },
+      {
+        "planIdx": 566,
+        "cls": "multi-n2",
+        "setting": {
+          "cls": "multi-n2",
+          "kind": "multi",
+          "n": 2,
+          "apiOnly": true,
+          "calls": "HH"
+        },
+        "status": 400,
+        "body": {
+          "code": 6,
+          "error": "multi toss takes 2 to 10 coins"
+        },
+        "at": "2026-10-12T13:36:25.520Z"
+      }
+    ]
+  },
+  "fullCaptureTransient": {
+    "source": {
+      "file": "data/captured/housebets-coinflip-sp1-6584bets.redacted.json",
+      "sha256": "ff4f0a706d7caad1f4a4ea53a96c842407a18b9ab12ccd1b2e480af7782f86ac",
+      "field": "meta.rejected"
+    },
+    "rejected": [
+      {
+        "planIdx": 535,
+        "cls": "target-n9-t8",
+        "setting": {
+          "cls": "target-n9-t8",
+          "kind": "target",
+          "n": 9,
+          "t": 8,
+          "apiOnly": true,
+          "calls": "TTTHTTTHH"
+        },
+        "status": 400,
+        "body": {
+          "error": "Transaction temporarily unavailable"
+        },
+        "at": "2026-10-12T17:10:30.287Z"
+      },
+      {
+        "planIdx": 817,
+        "cls": "coins-c6-n5",
+        "setting": {
+          "cls": "coins-c6-n5",
+          "kind": "coins",
+          "n": 5,
+          "coins": 6,
+          "calls": "TTTHT"
+        },
+        "status": 400,
+        "body": {
+          "error": "Transaction temporarily unavailable"
+        },
+        "at": "2026-10-12T17:16:03.250Z"
+      },
+      {
+        "planIdx": 1000,
+        "cls": "coins-c5-n1",
+        "setting": {
+          "cls": "coins-c5-n1",
+          "kind": "coins",
+          "n": 1,
+          "coins": 5,
+          "calls": "H"
+        },
+        "status": 400,
+        "body": {
+          "error": "Transaction temporarily unavailable"
+        },
+        "at": "2026-10-12T17:20:01.847Z"
+      },
+      {
+        "planIdx": 1230,
+        "cls": "coins-c4-n5",
+        "setting": {
+          "cls": "coins-c4-n5",
+          "kind": "coins",
+          "n": 5,
+          "coins": 4,
+          "calls": "HTTTH"
+        },
+        "status": 400,
+        "body": {
+          "error": "Transaction temporarily unavailable"
+        },
+        "at": "2026-10-12T17:24:42.983Z"
+      },
+      {
+        "planIdx": 1284,
+        "cls": "coins-c2-n10",
+        "setting": {
+          "cls": "coins-c2-n10",
+          "kind": "coins",
+          "n": 10,
+          "coins": 2,
+          "calls": "HTTHHTTHTT"
+        },
+        "status": 400,
+        "body": {
+          "error": "Transaction temporarily unavailable"
+        },
+        "at": "2026-10-12T17:25:57.766Z"
+      },
+      {
+        "planIdx": 1295,
+        "cls": "coins-c4-n8",
+        "setting": {
+          "cls": "coins-c4-n8",
+          "kind": "coins",
+          "n": 8,
+          "coins": 4,
+          "calls": "HHHHTHTH"
+        },
+        "status": 400,
+        "body": {
+          "error": "Transaction temporarily unavailable"
+        },
+        "at": "2026-10-12T17:26:03.486Z"
+      },
+      {
+        "planIdx": 1412,
+        "cls": "streak-n5",
+        "setting": {
+          "cls": "streak-n5",
+          "kind": "streak",
+          "n": 5,
+          "calls": "TTTTH"
+        },
+        "status": 400,
+        "body": {
+          "error": "Transaction temporarily unavailable"
+        },
+        "at": "2026-10-12T17:28:59.258Z"
+      },
+      {
+        "planIdx": 1912,
+        "cls": "target-n10-t6",
+        "setting": {
+          "cls": "target-n10-t6",
+          "kind": "target",
+          "n": 10,
+          "t": 6,
+          "apiOnly": true,
+          "calls": "HHTHTTHTHH"
+        },
+        "status": 400,
+        "body": {
+          "error": "Transaction temporarily unavailable"
+        },
+        "at": "2026-10-12T17:39:57.363Z"
+      },
+      {
+        "planIdx": 1925,
+        "cls": "coins-c3-n1",
+        "setting": {
+          "cls": "coins-c3-n1",
+          "kind": "coins",
+          "n": 1,
+          "coins": 3,
+          "calls": "H"
+        },
+        "status": 400,
+        "body": {
+          "error": "Transaction temporarily unavailable"
+        },
+        "at": "2026-10-12T17:40:19.083Z"
+      },
+      {
+        "planIdx": 2292,
+        "cls": "coins-c7-n9",
+        "setting": {
+          "cls": "coins-c7-n9",
+          "kind": "coins",
+          "n": 9,
+          "coins": 7,
+          "calls": "HHTHTHHHT"
+        },
+        "status": 400,
+        "body": {
+          "error": "Transaction temporarily unavailable"
+        },
+        "at": "2026-10-12T17:48:14.088Z"
+      },
+      {
+        "planIdx": 2496,
+        "cls": "target-n4-t1",
+        "setting": {
+          "cls": "target-n4-t1",
+          "kind": "target",
+          "n": 4,
+          "t": 1,
+          "apiOnly": true,
+          "calls": "HTTH"
+        },
+        "status": 400,
+        "body": {
+          "error": "Transaction temporarily unavailable"
+        },
+        "at": "2026-10-12T17:52:52.578Z"
+      },
+      {
+        "planIdx": 2736,
+        "cls": "coins-c2-n9",
+        "setting": {
+          "cls": "coins-c2-n9",
+          "kind": "coins",
+          "n": 9,
+          "coins": 2,
+          "calls": "HHHTTTTHH"
+        },
+        "status": 400,
+        "body": {
+          "error": "Transaction temporarily unavailable"
+        },
+        "at": "2026-10-12T17:58:15.051Z"
+      },
+      {
+        "planIdx": 3110,
+        "cls": "coins-c5-n6",
+        "setting": {
+          "cls": "coins-c5-n6",
+          "kind": "coins",
+          "n": 6,
+          "coins": 5,
+          "calls": "THTHTH"
+        },
+        "status": 400,
+        "body": {
+          "error": "Transaction temporarily unavailable"
+        },
+        "at": "2026-10-12T18:06:42.991Z"
+      },
+      {
+        "planIdx": 3189,
+        "cls": "streak-n5",
+        "setting": {
+          "cls": "streak-n5",
+          "kind": "streak",
+          "n": 5,
+          "calls": "THTTH"
+        },
+        "status": 400,
+        "body": {
+          "error": "Transaction temporarily unavailable"
+        },
+        "at": "2026-10-12T18:08:33.363Z"
+      },
+      {
+        "planIdx": 3516,
+        "cls": "coins-c10-n7",
+        "setting": {
+          "cls": "coins-c10-n7",
+          "kind": "coins",
+          "n": 7,
+          "coins": 10,
+          "calls": "HTHTTTT"
+        },
+        "status": 400,
+        "body": {
+          "error": "Transaction temporarily unavailable"
+        },
+        "at": "2026-10-12T18:16:27.050Z"
+      },
+      {
+        "planIdx": 4374,
+        "cls": "coins-c5-n9",
+        "setting": {
+          "cls": "coins-c5-n9",
+          "kind": "coins",
+          "n": 9,
+          "coins": 5,
+          "calls": "TTHHHTTTH"
+        },
+        "status": 400,
+        "body": {
+          "error": "Transaction temporarily unavailable"
+        },
+        "at": "2026-10-12T18:39:22.654Z"
+      }
+    ]
+  }
+}

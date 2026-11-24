@@ -1,0 +1,104 @@
+{
+  "exhibit": "E08",
+  "what": "HouseBets coinflip game page: the rules panel text (English) as shipped in the bundle the live page URL served on 19 Oct 2026 (last-modified Fri, 16 Oct 2026 09:18:09 GMT, the same last-modified as the other ten House Games bundles fetched that day). E02 is the same panel in the 10 Oct copy, the bundle in force while this package's rounds were captured (12-13 Oct).",
+  "source": {
+    "file": "bundles/live-2026-10-19/platform-housegames-coinflip-game.js (HouseBets workshop)",
+    "url": "/static/platform-housegames-coinflip-game.js",
+    "sha256": "07bf9441fe4bfbda59f9f22e2f7712bee03561869c18a76fd313fe03b33dfbcf",
+    "bytes": 893453,
+    "lastModified": "Fri, 16 Oct 2026 09:18:09 GMT",
+    "etag": "W/\"da20d-1a144012868\"",
+    "fetchedAt": "Mon, 19 Oct 2026 13:01:19 GMT",
+    "contentType": "application/javascript; charset=UTF-8",
+    "loadedByLivePage": "not re-checked on 19 Oct; the same /static URL the live page loaded on 10 Oct (bundles/LIVE-BUNDLES.md)"
+  },
+  "previous": {
+    "exhibit": "E02",
+    "file": "evidence/E02-coinflip-rules-panel-2026-10-10.json",
+    "bundleSha256": "2817660de0265cd3f5f14f06ca54feea2ba5d555d0e40c28492530a2b3817454",
+    "bytes": 866640
+  },
+  "rulesPanelEnglish": {
+    "rulesCxf5": "With several coins, a round where too few coins survive pays back only part of your stake: it is a profit only when the survivors times each coin's payout is more than the number of coins.",
+    "rulesTabRules": "Rules",
+    "rulesCxf1": "Pick a side, how many flips in a row (1 to 10) and how many coins (1 to 10). With more than one flip you can call each flip; every coin must land the whole pattern.",
+    "rulesCxf2": "The coins flip together, one flip at a time. A coin that misses drops out; a coin that lands every flip survives.",
+    "rulesCxf3": "Your stake is split evenly across the coins. Each surviving coin pays its share at 0.99 × 2ⁿ for n flips, and the round pays the sum. One coin is the classic flips in a row.",
+    "rulesCxf4": "Example: 5 coins × 3 flips, 3 coins survive: 3 ÷ 5 × 7.92 = 4.752×.",
+    "rulesCxfEdge": "Every coin is a 99% bet, so every combination of flips and coins returns at most 99% over the long run, a 1% house edge. With 7 coins the payout is rounded down to four decimals, so it returns a hair less.",
+    "rulesColSurvives": "A coin survives",
+    "rulesColEachPays": "Each coin pays",
+    "rulesPaytableH": "Paytable",
+    "rulesPayNote": "A coin survives when it lands every flip as called. Each survivor pays its share of the stake at this multiplier, and the round pays the sum.",
+    "rulesTabMulti": "Multi",
+    "rulesMulti1": "Pick a side and how many coins to toss, 2 to 10. Your stake is split evenly across the coins.",
+    "rulesMulti2": "Every coin that lands your side pays its share at 1.98×, and the round pays the sum: 7 of 10 coins pays 1.386×.",
+    "rulesMulti3": "Below the break-even you get part of your stake back; above it you profit. Every coin landing pays 1.98×.",
+    "rulesMultiEdge": "Each coin is an even-money bet at 99%, so a round returns at most 99% (98.995% at 7 coins, where the payout is rounded down).",
+    "rulesColProfitFrom": "Profit from",
+    "rulesColLanded": "Landed",
+    "rulesMultiExampleH": "Ten coins",
+    "rulesTabStreak": "Flips in a row",
+    "rulesTabCoins": "Coins",
+    "rulesTabFair": "Fairness",
+    "rulesHowH": "How to play",
+    "rulesStreak1": "Pick Heads or Tails and how many flips in a row, 1 to 10. With more than one flip you can call each flip yourself.",
+    "rulesStreak2": "The coins flip one after another. You win only if every flip lands as called.",
+    "rulesStreak3": "A win pays 0.99 × 2ⁿ for n flips: 1.98× for one, up to 1,013.76× for ten.",
+    "rulesCoins1": "Pick a side, how many coins flip at once (1 to 10), and how many of them must land your side.",
+    "rulesCoins2": "All coins flip together. You win if at least that many land your side; the bar under the coins counts them.",
+    "rulesCoins3": "A win pays 0.99 × 2ⁿ ÷ S, where S is the number of ways at least your target can land. The fewer you need, the smaller the payout.",
+    "rulesEdgeH": "Return to player",
+    "rulesEdge1": "Every bet returns at most 99% over the long run, a 1% house edge: the multiplier is the fair odds times 0.99, rounded down to four decimals.",
+    "rulesEdge2": "The win chance is capped at 98%, so the smallest target is 2 at 6–8 coins and 3 at 9–10 coins.",
+    "rulesPayH": "Payouts",
+    "rulesColCoins": "Coins",
+    "rulesColNeeded": "Needed",
+    "rulesColPays": "Pays",
+    "rulesColChance": "Chance",
+    "rulesSpeedH": "Speed",
+    "rulesSpeed1": "Use the speed control in the game toolbar: Normal, Fast or Turbo. Speed changes the animation, not the result.",
+    "rulesAutoH": "Autobet",
+    "rulesAuto1": "Autobet repeats your bet with your stops and on-win / on-loss rules; ⚡ Instant settles a run at once and draws it as a line.",
+    "rulesLimitsH": "Limits",
+    "rulesBetRange": "Bets from {min} to {max}.",
+    "rulesMaxWin": "The maximum win on one bet is {cap}.",
+    "rulesFairH": "Provably fair",
+    "rulesFair1": "Each flip comes from an HMAC-SHA256 stream keyed with the server seed over your client seed and the bet number; flip i reads draw i, and the top bit of the draw picks the side.",
+    "rulesFair2": "The server seed is committed by its hash before you bet and revealed when you rotate it, so no result can be changed after the fact.",
+    "rulesFair3": "Open Provably Fair to verify any round flip by flip.",
+    "rulesOpenFair": "Open Provably Fair",
+    "rulesMaxBet": "Max bet",
+    "rulesMaxWinCap": "Most a spin can win above its stake: {cap}.",
+    "rulesMinBet": "Min bet"
+  },
+  "changedSinceE02": {
+    "rulesSpeed1": {
+      "E02 (10 Oct)": "The dial by the coins, or Settings, sets how fast coins flip: Normal, Fast or Turbo. It changes nothing about the result.",
+      "E08 (19 Oct)": "Use the speed control in the game toolbar: Normal, Fast or Turbo. Speed changes the animation, not the result."
+    },
+    "rulesMaxBet": {
+      "E02 (10 Oct)": null,
+      "E08 (19 Oct)": "Max bet"
+    },
+    "rulesMaxWinCap": {
+      "E02 (10 Oct)": null,
+      "E08 (19 Oct)": "Most a spin can win above its stake: {cap}."
+    },
+    "rulesMinBet": {
+      "E02 (10 Oct)": null,
+      "E08 (19 Oct)": "Min bet"
+    }
+  },
+  "panelKeysCalled": {
+    "note": "rules keys the page code passes to its translator, (\"rulesX\" ...), in the 10 Oct copy vs the live copy",
+    "added": [
+      "rulesMaxBet",
+      "rulesMaxWinCap",
+      "rulesMinBet"
+    ],
+    "removed": [
+      "rulesBetRange"
+    ]
+  }
+}

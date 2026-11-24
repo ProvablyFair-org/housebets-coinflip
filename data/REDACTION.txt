@@ -1,0 +1,18 @@
+# The audit account's HouseBets user id is replaced by the string "redacted" in every data file this package ships.
+# Field: bets[]._raw.game.userId, one per bet. The three other userId fields of each answer hold the nil UUID
+# 00000000-0000-0000-0000-000000000000 and are unchanged. No check of this package uses the user id.
+# Method: scripts/redact-user-id.mjs, a text substitution of the quoted value (no re-serialisation; every other byte is
+# unchanged; the result still round-trips through the capture rig's JSON.stringify(obj, null, 2)).
+# The as-captured files are NOT shipped: they stay in the HouseBets workshop (capture-full-2026-10-12/), sha256 below.
+# Anyone holding them reproduces the shipped bytes with: node scripts/redact-user-id.mjs <as-captured> <out>
+#
+# shipped file | as-captured file (workshop) | as-captured sha256 | shipped sha256 | values replaced
+captured/housebets-coinflip-sp1-6584bets.redacted.json | phaseA/housebets-coinflip-sp1-6584bets.json | 9698570503942ceb9136f45fdc89fc529ec914aba457e6f180947aa21cc1ec20 | ff4f0a706d7caad1f4a4ea53a96c842407a18b9ab12ccd1b2e480af7782f86ac | 6584
+supplementary/housebets-coinflip-phaseC-250bets.json | phases/housebets-coinflip-phaseC-250bets.json | a77a6b9208135fcd32f8b3bfee83afceff38b8c47f8b942c01b268bf7607c1e6 | fdf863a475d79d0e24ba9d54a5951172f4e2f31e8bb1a8d6e2012414df11b382 | 250
+supplementary/housebets-coinflip-phaseC-safe-10usd-200bets.json | phases-10usd/housebets-coinflip-phaseC-safe-10usd-200bets.json | 14da2691ec82a443c725727f5b6d03e6b402ddfedcb9b76619755a6aef810278 | a42784dad1d1d3ae0a7d5caa7a87d110d28736226f47692acb9dd40d0ce1ef44 | 200
+supplementary/housebets-coinflip-phaseD-200bets.json | phases/housebets-coinflip-phaseD-200bets.json | 83ec96e338e3d11c5f912c9ab398eca57dbf66d0b7f93e906856ec1492a70271 | cb88bf7b78ab1f63932385ffced3867a2a074ab739461ac1731a7547f11766f3 | 200
+#
+# Phase A primary and tail: written by the split (src/split.ts) from the shipped captured file above; DICE/LIMBO/COINFLIP-05
+# re-runs that split and requires both files byte for byte.
+housebets-coinflip-phaseA-6550bets.json | split of housebets-coinflip-sp1-6584bets.redacted.json | - | c7e747f1e41ddd8a09db7b9e4cabb6c12580762f583d98361e708bc734f8fee7 | -
+housebets-coinflip-phaseA-tail-34bets.json | split of housebets-coinflip-sp1-6584bets.redacted.json | - | b71953edb36a729e502fbf084172db76f01bb0a185005f3c45037d9e578fa18d | -

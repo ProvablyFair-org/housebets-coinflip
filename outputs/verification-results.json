@@ -1,0 +1,180 @@
+{
+  "suite": "housebets-coinflip",
+  "profileSha256": "97e02fd0303f80b686749ce20a6cc1f5344b5199691bd5074135f8796e767c62",
+  "verdict": "PROVABLY FAIR — Full Pass",
+  "summary": {
+    "passes": 20,
+    "fails": 0,
+    "overstated": 0,
+    "operatorFlags": 0,
+    "captureFlags": 1,
+    "packageChecks": 5,
+    "excluded": [
+      "COINFLIP-27"
+    ]
+  },
+  "steps": [
+    {
+      "id": "COINFLIP-01",
+      "status": "PASS",
+      "origin": null,
+      "detail": "sha256(utf8(revealed)) == committed: 131/131 Phase A seeds, 145/145 across Phase A, tail, C, C $10 and D; 0 unverifiable bets"
+    },
+    {
+      "id": "COINFLIP-02",
+      "status": "PASS",
+      "origin": null,
+      "detail": "Phase A 130/130 links, pre-capture anchor true, Phase A → tail link true, tail → pair active after the capture true; C 4/4 anchor true, C $10 3/3 anchor true, D 3/3 anchor true"
+    },
+    {
+      "id": "COINFLIP-03",
+      "status": "PASS",
+      "origin": null,
+      "detail": "131/131 epochs: every bet carries its epoch's server-seed hash and client seed in the server's answer"
+    },
+    {
+      "id": "COINFLIP-04",
+      "status": "PASS",
+      "origin": null,
+      "detail": "131/131 epochs: nonces exactly 1..50, once each (no gap or repeat), rising in the capture's placement order (idx) in 131/131 epochs (no reorder), and N == the server's nonce read at rotation"
+    },
+    {
+      "id": "COINFLIP-05",
+      "status": "PASS",
+      "origin": null,
+      "detail": "Phase A 6550 bets / 131 seeds / 131 epochs, every epoch 50: true; tail 34 (own file, disclosed DL-1); the captured file 6584 bets / 132 seeds; supplementary C 250, C $10 200, D 200 — against src/loader.ts constants, never meta; the split re-run from the captured file (the as-captured file with the user id redacted, data/REDACTION.txt) reproduces both files byte for byte; bets placed (the capture's clock, printed, not checked): Phase A 2026-10-12T17:04:50.653Z … 2026-10-12T19:49:30.318Z, tail 2026-10-12T19:49:32.173Z … 2026-10-12T19:50:20.854Z, C 2026-10-13T11:53:50.364Z … 2026-10-13T11:58:46.257Z, C $10 2026-10-13T12:33:13.408Z … 2026-10-13T12:34:28.098Z, D 2026-10-13T11:59:16.480Z … 2026-10-13T12:02:51.528Z"
+    },
+    {
+      "id": "COINFLIP-06",
+      "status": "PASS",
+      "origin": null,
+      "detail": "a wrong client seed changes 77987/156147 Phase A flips (49.94 %, model 50 %, z -0.44, |z| ≤ 5); Phase D: player-set seeds [\"provablyfair-1\",\"provablyfair-2\",\"player-seed-abc\",\"1234567890\"] (predictable, disclosed DL-2, all 4 epochs exposed), 200/200 flip sequences and 200/200 payouts recompute, server answer == copy 200/200, 2580/5110 flips change vs the previous client seed (z 0.70); phases A–C: the capture rig's client-seed source label reads \"node:crypto randomBytes(16) hex\" (a CSPRNG) on 141/141 seeds (a label check: the code that ran is not re-executed here); empty-seed control: one request, answered HTTP 400 with a generic error (E06), nothing read afterwards"
+    },
+    {
+      "id": "COINFLIP-07",
+      "status": "PASS",
+      "origin": null,
+      "detail": "flip sequence == the published derivation (E01: flip i = draw i of HMAC-SHA256(serverSeed, clientSeed:nonce:block), block floor(i/8), side = floor(u / 2^32 × 2), 0 = H; coins × flips coin j reads draws j·F … j·F+F−1), compared as strings: 6550/6550 Phase A (streak 474, target 1808, coins × flips 4268), 684/684 tail + C + C $10 + D; answer seeds == epoch seeds 6550/6550; the server's raw answer (flips, matched, calls, flip count, mode, coins, target, nonce, client seed, hashed seed, seed pair) == the copy the recompute uses: 6550/6550 Phase A, 684/684 tail + C + C $10 + D; coverage 6550 == expectedBets"
+    },
+    {
+      "id": "COINFLIP-08",
+      "status": "PASS",
+      "origin": null,
+      "detail": "the draw u is a full 32-bit value (E01 drawBits 32, no range reduction); the side rule \"side = floor(u / 2^32 * 2): 0 = H, 1 = T\" is a single step at u = 2147483648 (= 2^31: true), confirmed at both edges of all 65536 strata of 2^16 draws (65536/65536) and at every draw within 2^15 of the step (65536/65536); H on 2,147,483,648 draws, T on 2,147,483,648: bias 0 — exactly 1/2 by construction (the top bit of a uniform 32-bit draw)"
+    },
+    {
+      "id": "COINFLIP-09",
+      "status": "PASS",
+      "origin": null,
+      "detail": "the 4 worked examples of HouseBets' published spec (E01: ten draws and ten flips each) 4/4, src/spec.ts == E01 vectors true; the first captured coins × flips winner (bet idx 2, coins-c4-n3, 12 flips, matched 1, payout 0.01980615) recomputes: true; also tests/rng.test.ts"
+    },
+    {
+      "id": "COINFLIP-10",
+      "status": "PASS",
+      "origin": null,
+      "detail": "calls landed (target game) / coins surviving all F flips (coins × flips) counted from the flips: the server's matched field equals the count on 6550/6550 Phase A bets and 684/684 supplementary (compared, never read); win rule per mode (target game: matched ≥ target; coins × flips: pays per survivor) == the served win/loss 6550/6550 and 684/684; every setting legal (1 ≤ n ≤ 10, target ≥ minTargets[n], coins 2…10): 7234/7234; request as sent and answer echo (calls, target, mode, coins) == setting 6550/6550"
+    },
+    {
+      "id": "COINFLIP-11",
+      "status": "PASS",
+      "origin": null,
+      "detail": "payout == floor(stake × multiplier) at 1e-8, 0 on a loss, every money value on the 1e-8 grid as served: 6550/6550 Phase A, 684/684 tail/C/D; capture copy == the server's own round record (round id, stake, payout, flips, matched) 6550/6550 Phase A, 684/684 tail/C/D; the server's raw answer (stake, payout, multiplier, round id) == the copy 6550/6550 Phase A, 684/684 tail/C/D; money values off the grid 0"
+    },
+    {
+      "id": "COINFLIP-12",
+      "status": "PASS",
+      "origin": null,
+      "detail": "Phase C 250 single flips (streak n = 1, win chance 1/2) at 1.000311 (= 100 × the E03 minimum 0.01000311, read from the exhibit: true): flips 250/250, multipliers 122/122, payouts 250/250, stake as sent and settled true, setting as sent true, server answer == copy 250/250, 122 elevated wins (≥ 100); $10 set 200 bets of 3 calls with target 1 (win chance 7/8) at 10: flips 200/200, multipliers 177/177, payouts 200/200, stake true, setting true, server answer == copy 200/200, 177 wins (≥ 100); same flips, win rule and payout rule as base stake"
+    },
+    {
+      "id": "COINFLIP-13",
+      "status": "PASS",
+      "origin": null,
+      "detail": "multiplier paid == the published formula (E01: target game floor4(0.99·2^n/S(n,t)); coins × flips floor4(0.99·2^F·h/C); multi toss floor4(1.98·h/n)), compared at 1e-4: 2204/2204 Phase A winners, 368/368 supplementary winners; losers served 0 4346/4346; each bet's published table cell (multiplierTable, or multiTable for coins at F = 1) == formula 3245/3245; the E01 tables themselves: multiplierTable 55/55 cells (zeros below minTargets), multiTable 63/63 cells, and multi toss == coins × flips at F = 1 on every cell; the edge is 0.99 × fair odds floored to 4 decimals (E01 houseEdge 0.01, read from the exhibit; E01's three formula coefficients == the code's, COINFLIP-26); the operator's winChance field equals the exact probability that the round pays more than the stake on 7234/7234 bets (compared, never used)"
+    },
+    {
+      "id": "COINFLIP-14",
+      "status": "PASS",
+      "origin": null,
+      "detail": "within every n the target-game multiplier rises strictly as the target rises (win chance falls): 38/38 steps; the smallest legal target (E01 minTargets [1,1,1,1,1,2,2,2,3,3]) is the smallest t with S(n,t)/2^n ≤ 98 % (E01 maxWinChance 0.98): 10/10 n; the largest multiplier of any legal setting is 1013.76× and pays 10.14075279 at the minimum stake, within the 1000310.0961298 USDT maximum win (E03, read from the exhibit): true; the largest captured payout is within it: true; the cap is on the win above the stake (E08 rulesMaxWinCap \"Most a spin can win above its stake: {cap}.\"), and a stake of 987.70695538 USDT or more at that multiplier would win more than the cap above the stake: the page's code blocks such a bet (\"The win would exceed the maximum payout of {amount} {currency}\") and has a message for the server refusing one (\"The win would exceed the maximum payout\"), E02; no such bet was placed, so the server's answer was not witnessed (DL-3); declared unwitnessed (DL-3): max bet 20,006.20192259 USDT (E03 wallet) × 1013.76× = 20,281,487.26104483, 20,261,481.05912224 above the stake > the max win, so the refusal is reachable within the bet limits; the largest captured payout is 11.314 USDT, so the refusal branch was never produced"
+    },
+    {
+      "id": "COINFLIP-15",
+      "status": "FLAG",
+      "origin": "capture",
+      "detail": "138 plan classes (src/loader.ts: every-flip streak n = 1…10, target game t < n at every legal t, coins × flips C = 2…10 × F = 1…10 — the whole declared grid): present 138/138, unplanned 0; modes: streak 474, target 1808, coins × flips 4268 bets, of which the multi toss law (coins at F = 1, one side, E02 rulesMulti1 \"Pick a side and how many coins to toss, 2 to 10\") 429; Phase A bets per class 45–48, 138 of 138 classes under the 50 floor; the 1-coin multi toss request (one call per coin, coins 1) was refused by the server 36/36 with \"multi toss takes 2 to 10 coins\" (true) and is recorded as refused (E07); target-game bets (t < n) the rig labels apiOnly (not sent by the game page's UI): Phase A 1808/1808, tail 5/5, D 54/54, $10 set 0/200 (the $10 set carries no such label); requests the server refused during Phase A: 16 (16 transient \"Transaction temporarily unavailable\", DL-1; 0 other); the plan was sized at 6624 slots = 138 classes × 48 before any trim (meta.planTruncated), i.e. under the 50 floor by design, then trimmed to 6600 to fill whole epochs — an auditor-side coverage shortfall (the capture plan, not the operator): capture-origin FLAG, disclosed DL-4, verdict-neutral"
+    },
+    {
+      "id": "COINFLIP-16",
+      "status": "PASS",
+      "origin": null,
+      "detail": "every coin flip round of the package is in the platform's bet history with the same stake, payout and won/lost status: 7234/7234 (E04, 7234 rows); E05 (the full reconcile-full.py output, 60 capture-file rows over 11 games) checked by its numbers: every row's net == paid − staked true; TOTAL == the sum of the rows (86966 rounds) true; ledger entries 86979 == 86966 captured + 0 open + 13 from 10 Oct, captured == TOTAL rounds, 0 unexplained: true; this package's 4 capture files (7234 rounds): rounds, staked and paid == the sums of the server's round records in the package's own datasets 4/4; balance before == wallet balance after 914.19723945 − net -72.64994055 + open stakes 0 = 986.84718000, == the reconcile run's --before argument 986.84718000: true (that argument is the figure the run was given; the page-header read it came from was not kept, disclosed DL-10); the last answer's 4-dp balance 914.1972 == the balance after to 4 dp: true; the exhibit ends RECONCILED: true; the per-bet balance field is not used: 8 games were captured concurrently"
+    },
+    {
+      "id": "COINFLIP-17",
+      "status": "PASS",
+      "origin": null,
+      "detail": "the declared RNG message is \"clientSeed:nonce:block\" keyed with the serverSeed (E01): no call, target, mode or coin count enters it; witnessed on data — every bet recomputes with the calls excluded from the derivation: streak 738/738, target 2067/2067, coins × flips 4429/4429 (the multi toss law is coins × flips at F = 1, COINFLIP-15); the calls only decide which flips count as landed (COINFLIP-10)"
+    },
+    {
+      "id": "COINFLIP-18",
+      "status": "PASS",
+      "origin": null,
+      "detail": "target game: S(n,t) == the count of ≥ t landed among all 2^n call outcomes, enumerated, for every legal (n,t): 48/48; E01 winChanceTable == enumeration 55/55 cells (compared, never used); multi toss: h landed of n == C(n,h) by enumeration 9/9, E01 multiProfitChance == enumeration 9/9; coins × flips: survivor law by enumeration of each coin's 2^F patterns and the 2^C survive / miss patterns == the law the package uses 90/90; no operator win-chance field is read; negative controls: one flipped side is rejected (1 mismatch added to the unmodified recompute), a corrupted win-chance cell is caught (true)"
+    },
+    {
+      "id": "COINFLIP-19",
+      "status": "PASS",
+      "origin": null,
+      "detail": "147 legal settings (target game 48, multi toss 9, coins × flips 90): derived RTP 0.989929687 (target n=6 t=2) … 0.990000000 (target n=1 t=1) vs the flat 0.99 claim read from the exhibits (rules (E02 rulesEdge1) 99%, rules (E02 rulesCxfEdge) 99%, rules (E02 rulesMultiEdge) 99%, game settings (E01 summary) 99%, rules (E08 rulesEdge1, live copy of 19 Oct) 99%, rules (E08 rulesCxfEdge, live copy of 19 Oct) 99%, rules (E08 rulesMultiEdge, live copy of 19 Oct) 99%; the places agree: true); 0 house-side beyond the 0.1 pp band, 0 player-favourable → RTP-CLAIM PASS (rule RTP-CLAIM 1.2.0, enforced true: PASS); committed table matches: true; compared and printed, not in place of the rule: \"at most 99%\" holds on every setting: true; exactly 99 % on 115 settings, which are exactly the 115 whose multipliers need no rounding (147/147 agree, E01 \"exactly 99% where the multiplier is a short number\"); the panel's \"98.995% at 7 coins\" (E02 rulesMultiEdge, read from the exhibit) == multi n=7 98.995078 % to 3 decimals: true"
+    },
+    {
+      "id": "COINFLIP-20",
+      "status": "PASS",
+      "origin": null,
+      "detail": "census re-run in full == the pinned outputs/simulation-results.json byte for byte: true; 2,000,000 fresh flips: 999,585 T (side balance chi² 0.344, df 1, p 0.5573), runs z 1.598 p 0.1100, lag-1 of the draws r -1.66e-3 z -2.346 p 0.0190 (each ≥ α/3 = 0.0033: true); 147/147 bands of 1,000,000 rounds (147,000,000 rounds in all) within 5·SE + 1e-4 of their exact RTP — every legal setting, each on its own seeds: the target game at every legal target of every n (48), the multi toss at 2…10 coins (9), coins × flips at C = 2…10, F = 1…10 (90): true; worst |Δ|/SE 2.37 (coins C=7 F=7); band tolerance |RTP_sim − RTP_exact| ≤ 5·SE + 0.0001, SE = σ/√n, per band |Δ| vs width: target n=1 t=1 0.00062 ≤ 0.00505; target n=2 t=1 0.00050 ≤ 0.00296; target n=2 t=2 0.00085 ≤ 0.00867; target n=3 t=1 0.00067 ≤ 0.00197; target n=3 t=2 0.00020 ≤ 0.00505; target n=3 t=3 0.00041 ≤ 0.01320; target n=4 t=1 0.00015 ≤ 0.00138; target n=4 t=2 0.00051 ≤ 0.00344; target n=4 t=3 0.00333 ≤ 0.00744; target n=4 t=4 0.00019 ≤ 0.01927; target n=5 t=1 0.00001 ≤ 0.00099; target n=5 t=2 0.00036 ≤ 0.00248; target n=5 t=3 0.00102 ≤ 0.00505; target n=5 t=4 0.00137 ≤ 0.01040; target n=5 t=5 0.00013 ≤ 0.02766; target n=6 t=2 0.00044 ≤ 0.00183; target n=6 t=3 0.00019 ≤ 0.00368; target n=6 t=4 0.00139 ≤ 0.00694; target n=6 t=5 0.00323 ≤ 0.01423; target n=6 t=6 0.00127 ≤ 0.03939; target n=7 t=2 0.00022 ≤ 0.00138; target n=7 t=3 0.00013 ≤ 0.00278; target n=7 t=4 0.00033 ≤ 0.00505; target n=7 t=5 0.00293 ≤ 0.00925; target n=7 t=6 0.00456 ≤ 0.01927; target n=7 t=7 0.01172 ≤ 0.05588; target n=8 t=2 0.00005 ≤ 0.00104; target n=8 t=3 0.00002 ≤ 0.00213; target n=8 t=4 0.00007 ≤ 0.00384; target n=8 t=5 0.00004 ≤ 0.00665; target n=8 t=6 0.00164 ≤ 0.01214; target n=8 t=7 0.00212 ≤ 0.02603; target n=8 t=8 0.01236 ≤ 0.07915; target n=9 t=3 0.00013 ≤ 0.00166; target n=9 t=4 0.00125 ≤ 0.00299; target n=9 t=5 0.00035 ≤ 0.00505; target n=9 t=6 0.00101 ≤ 0.00859; target n=9 t=7 0.00197 ≤ 0.01585; target n=9 t=8 0.00642 ≤ 0.03517; target n=9 t=9 0.00551 ≤ 0.11200; target n=10 t=3 0.00027 ≤ 0.00129; target n=10 t=4 0.00066 ≤ 0.00235; target n=10 t=5 0.00106 ≤ 0.00395; target n=10 t=6 0.00181 ≤ 0.00646; target n=10 t=7 0.00300 ≤ 0.01097; target n=10 t=8 0.00401 ≤ 0.02068; target n=10 t=9 0.00850 ≤ 0.04760; target n=10 t=10 0.01274 ≤ 0.15842; multi n=2 0.00075 ≤ 0.00360; multi n=3 0.00073 ≤ 0.00296; multi n=4 0.00015 ≤ 0.00257; multi n=5 0.00060 ≤ 0.00231; multi n=6 0.00016 ≤ 0.00212; multi n=7 0.00040 ≤ 0.00197; multi n=8 0.00051 ≤ 0.00185; multi n=9 0.00038 ≤ 0.00175; multi n=10 0.00024 ≤ 0.00167; coins C=2 F=1 0.00095 ≤ 0.00360; coins C=2 F=2 0.00180 ≤ 0.00616; coins C=2 F=3 0.00253 ≤ 0.00936; coins C=2 F=4 0.00433 ≤ 0.01366; coins C=2 F=5 0.00447 ≤ 0.01959; coins C=2 F=6 0.00700 ≤ 0.02788; coins C=2 F=7 0.00684 ≤ 0.03955; coins C=2 F=8 0.01679 ≤ 0.05599; coins C=2 F=9 0.00779 ≤ 0.07922; coins C=2 F=10 0.01616 ≤ 0.11205; coins C=3 F=1 0.00002 ≤ 0.00296; coins C=3 F=2 0.00040 ≤ 0.00505; coins C=3 F=3 0.00053 ≤ 0.00766; coins C=3 F=4 0.00400 ≤ 0.01117; coins C=3 F=5 0.00587 ≤ 0.01601; coins C=3 F=6 0.00399 ≤ 0.02278; coins C=3 F=7 0.00750 ≤ 0.03231; coins C=3 F=8 0.00251 ≤ 0.04574; coins C=3 F=9 0.00175 ≤ 0.06470; coins C=3 F=10 0.01882 ≤ 0.09151; coins C=4 F=1 0.00018 ≤ 0.00257; coins C=4 F=2 0.00061 ≤ 0.00439; coins C=4 F=3 0.00186 ≤ 0.00665; coins C=4 F=4 0.00107 ≤ 0.00969; coins C=4 F=5 0.00227 ≤ 0.01388; coins C=4 F=6 0.00109 ≤ 0.01974; coins C=4 F=7 0.00672 ≤ 0.02799; coins C=4 F=8 0.00615 ≤ 0.03962; coins C=4 F=9 0.00463 ≤ 0.05605; coins C=4 F=10 0.00855 ≤ 0.07926; coins C=5 F=1 0.00015 ≤ 0.00231; coins C=5 F=2 0.00000 ≤ 0.00393; coins C=5 F=3 0.00043 ≤ 0.00596; coins C=5 F=4 0.00039 ≤ 0.00867; coins C=5 F=5 0.00282 ≤ 0.01243; coins C=5 F=6 0.00248 ≤ 0.01767; coins C=5 F=7 0.00800 ≤ 0.02505; coins C=5 F=8 0.00052 ≤ 0.03545; coins C=5 F=9 0.01129 ≤ 0.05014; coins C=5 F=10 0.00815 ≤ 0.07090; coins C=6 F=1 0.00007 ≤ 0.00212; coins C=6 F=2 0.00046 ≤ 0.00360; coins C=6 F=3 0.00145 ≤ 0.00545; coins C=6 F=4 0.00071 ≤ 0.00793; coins C=6 F=5 0.00097 ≤ 0.01135; coins C=6 F=6 0.00205 ≤ 0.01614; coins C=6 F=7 0.00762 ≤ 0.02287; coins C=6 F=8 0.00184 ≤ 0.03237; coins C=6 F=9 0.00737 ≤ 0.04578; coins C=6 F=10 0.00315 ≤ 0.06473; coins C=7 F=1 0.00055 ≤ 0.00197; coins C=7 F=2 0.00004 ≤ 0.00334; coins C=7 F=3 0.00024 ≤ 0.00505; coins C=7 F=4 0.00234 ≤ 0.00735; coins C=7 F=5 0.00143 ≤ 0.01052; coins C=7 F=6 0.00373 ≤ 0.01495; coins C=7 F=7 0.01000 ≤ 0.02118; coins C=7 F=8 0.00964 ≤ 0.02998; coins C=7 F=9 0.00776 ≤ 0.04239; coins C=7 F=10 0.01303 ≤ 0.05994; coins C=8 F=1 0.00018 ≤ 0.00185; coins C=8 F=2 0.00088 ≤ 0.00313; coins C=8 F=3 0.00151 ≤ 0.00473; coins C=8 F=4 0.00164 ≤ 0.00688; coins C=8 F=5 0.00060 ≤ 0.00984; coins C=8 F=6 0.00220 ≤ 0.01399; coins C=8 F=7 0.00738 ≤ 0.01982; coins C=8 F=8 0.00472 ≤ 0.02805; coins C=8 F=9 0.00957 ≤ 0.03966; coins C=8 F=10 0.01907 ≤ 0.05608; coins C=9 F=1 0.00029 ≤ 0.00175; coins C=9 F=2 0.00048 ≤ 0.00296; coins C=9 F=3 0.00098 ≤ 0.00447; coins C=9 F=4 0.00107 ≤ 0.00649; coins C=9 F=5 0.00102 ≤ 0.00929; coins C=9 F=6 0.00046 ≤ 0.01320; coins C=9 F=7 0.00291 ≤ 0.01869; coins C=9 F=8 0.00129 ≤ 0.02645; coins C=9 F=9 0.00806 ≤ 0.03740; coins C=9 F=10 0.00947 ≤ 0.05287; coins C=10 F=1 0.00036 ≤ 0.00167; coins C=10 F=2 0.00006 ≤ 0.00281; coins C=10 F=3 0.00052 ≤ 0.00424; coins C=10 F=4 0.00140 ≤ 0.00616; coins C=10 F=5 0.00095 ≤ 0.00882; coins C=10 F=6 0.00027 ≤ 0.01252; coins C=10 F=7 0.00417 ≤ 0.01774; coins C=10 F=8 0.00171 ≤ 0.02510; coins C=10 F=9 0.00310 ≤ 0.03548; coins C=10 F=10 0.00541 ≤ 0.05017; bands whose width exceeds the 1 % house edge (1 − the claim), so that band cannot detect an edge of that size from 1,000,000 rounds (71 of 147): target n=3 t=3, target n=4 t=4, target n=5 t=4, target n=5 t=5, target n=6 t=5, target n=6 t=6, target n=7 t=6, target n=7 t=7, target n=8 t=6, target n=8 t=7, target n=8 t=8, target n=9 t=7, target n=9 t=8, target n=9 t=9, target n=10 t=7, target n=10 t=8, target n=10 t=9, target n=10 t=10, coins C=2 F=4, coins C=2 F=5, coins C=2 F=6, coins C=2 F=7, coins C=2 F=8, coins C=2 F=9, coins C=2 F=10, coins C=3 F=4, coins C=3 F=5, coins C=3 F=6, coins C=3 F=7, coins C=3 F=8, coins C=3 F=9, coins C=3 F=10, coins C=4 F=5, coins C=4 F=6, coins C=4 F=7, coins C=4 F=8, coins C=4 F=9, coins C=4 F=10, coins C=5 F=5, coins C=5 F=6, coins C=5 F=7, coins C=5 F=8, coins C=5 F=9, coins C=5 F=10, coins C=6 F=5, coins C=6 F=6, coins C=6 F=7, coins C=6 F=8, coins C=6 F=9, coins C=6 F=10, coins C=7 F=5, coins C=7 F=6, coins C=7 F=7, coins C=7 F=8, coins C=7 F=9, coins C=7 F=10, coins C=8 F=6, coins C=8 F=7, coins C=8 F=8, coins C=8 F=9, coins C=8 F=10, coins C=9 F=6, coins C=9 F=7, coins C=9 F=8, coins C=9 F=9, coins C=9 F=10, coins C=10 F=6, coins C=10 F=7, coins C=10 F=8, coins C=10 F=9, coins C=10 F=10; false-alarm rates: side balance 0.0033 (exact binomial), runs and lag-1 0.0033 each (nominal), worst target band 6.9e-7 (exact binomial), worst multi toss or coins band ≤ 4.4e-5 (Bernstein bound), every band summed ≤ 0.0011"
+    },
+    {
+      "id": "COINFLIP-21",
+      "status": "PASS",
+      "origin": null,
+      "detail": "145 revealed epochs (every revealed seed of the five bet files: A 131, tail 1, C 5, C $10 4, D 4; == the population constants and the revealed seeds: true) × 10,000 nonces (early = 1..n, n = the epoch's captured depth, 50, the tail 34; reference = n+1..10000; every early window == the epoch's captured nonces: true), each epoch's played settings cycled with their own calls; scored statistic (since 14 Oct 2026, the roulette/keno form): the per-slot standardised early-window return of the 5267 scored played slots (largest multiplier ≤ 100×, src/sim-config.ts; each slot against its setting's exact mean and sd) z -1.063, one-sided p 0.1439 (≥ 0.009, the calibrated threshold of src/sim-config.ts: true); printed, not scored: the Phase A epochs alone z -1.067 (4656 slots), the other 14 z -0.176 (611 slots); reference window z -0.901; all 7234 slots z -0.838 p 0.2010 (printed, not scored; 1967 played slots above 100× are unscored); the switch from the pooled form was made after the pooled result was known: pooled (scored until 14 Oct, printed) z -1.168, p 0.1214, reference z -0.477, all slots z -0.211; per-setting census sums == the window totals: true; 87 epochs below expectation, 58 at or above (descriptive, not a test: under fair play 86.18 ± 5.9 of 145 are below, because the return is right-skewed; src/false-alarm-pass2.ts); early window == the captured served multipliers: true; detection power of the scored statistic: a 3.55 pp per-bet RTP deficit at 80 % (on all slots 4.00 pp; pooled form 10.36 pp, all slots 23.9 pp); false-alarm rate of the scored rule 0.00907 ± 0.000212 at p < 0.009 (at the nominal 0.01: 0.01007 ± 0.000223, not within the cap, hence the calibrated threshold; pooled rule at 0.01: 0.00657 ± 0.000181; declared in src/false-alarm-pass2.ts from 200,000 honest replicates and re-derived by npm run false-alarm:pass2, not re-run by verify; ≤ 0.01)"
+    },
+    {
+      "id": "COINFLIP-22",
+      "status": "INFO",
+      "origin": null,
+      "detail": "156,147 captured Phase A flips: 78,082 T (z 0.04); target-game matched counts per n against Binomial(n, 1/2): chi² 57.90 on 43 df, p 0.0641 — informational (a few-thousand-round sample has little power and never bears the verdict)"
+    },
+    {
+      "id": "COINFLIP-23",
+      "status": "PASS",
+      "origin": null,
+      "detail": "MANIFEST.md S5 fairness-integrity matrix (between the S5-MATRIX markers): 8/8 rows carry the framework's id and name in order (S5-1 Replay protection, S5-2 Input validation, S5-3 Seed integrity under adversarial input, S5-4 Cross-player isolation, S5-5 Payout field integrity, S5-6 Nonce sequence enforcement, S5-7 Parameter boundary enforcement, S5-8 Game-specific state) and a status (6 Pass on every control the row names, 2 Pass on part of the controls it names, 0 Not tested); columns Test ID | Category | What the framework tests | Result | Tied to; the profile's -23 rule does not list the names (the framework list above is used)"
+    },
+    {
+      "id": "COINFLIP-24",
+      "status": "PASS",
+      "origin": null,
+      "detail": "site-verifier/derive.js (generated from src/rng.ts by scripts/build-site-verifier.mjs): sha256 86b887b626aaa35b0ee2c646af29c98927183604c0033e3dc0109711441aa05a; == SITE_VERIFIER_PIN in src/artifact-pins.ts: true; == its RELEASE-MANIFEST.json pin: true; quoted in MANIFEST.md and README.md: true; the module loaded from that file exports what src/rng.ts exports (SIDES, draws, flips, hmacBlock, sha256Hex, sideOf): true; run side by side with src/rng.ts on every captured round of the 5 shipped datasets: 7234 rounds, 201398 calls (SIDES 1, sha256Hex 145, hmacBlock 23462, draws 7234, sideOf 163322, flips 7234; 6/6 exports exercised), 0 differing results"
+    },
+    {
+      "id": "COINFLIP-25",
+      "status": "PASS",
+      "origin": null,
+      "detail": "README.md \"Verify a bet\" carries where the seed is revealed, the fields, the commitment encoding, the HMAC key's encoding (the seed's text as UTF-8, not the 32 bytes it hex-decodes to), the flip rule, the match count per mode and the multiplier: 9/9 markers"
+    },
+    {
+      "id": "COINFLIP-26",
+      "status": "PASS",
+      "origin": null,
+      "detail": "6 datasets + 8 evidence exhibits match their sha256 pinned in src/loader.ts; the audit account's user id is redacted in the shipped datasets (data/REDACTION.txt): userId values \"redacted\" 13818, nil UUID 41454, any other value 0; every bet's _raw.game.userId == \"redacted\": true; config pins: the src/ constants that stand for exhibit figures == the values parsed from the pinned exhibits 34/34 (E01 24/24: derivation fields, side and draw rules, flip / target / coin ranges, the four tables, vectors, house edge, the coefficient of each formula string, == the captured preflight answer; E02 6/6: bundle constants; E03 4/4: minimum stake, maximum win, wallet decimals, == the captured preflight answer)"
+    },
+    {
+      "id": "COINFLIP-30",
+      "status": "PASS",
+      "origin": null,
+      "detail": "MANIFEST.md: 14 declared-limitation rows; load-bearing premises with \"Could the data contradict it?\": true; every exhibit E01…E08 listed by file name: true"
+    }
+  ]
+}

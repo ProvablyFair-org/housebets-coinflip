@@ -1,0 +1,38 @@
+{
+  "exhibit": "E06",
+  "what": "Phase D empty-seed control: the server's answer to POST /change_seed {clientSeed: \"\"}",
+  "source": {
+    "file": "data/supplementary/housebets-coinflip-phaseD-200bets.json",
+    "sha256": "cb88bf7b78ab1f63932385ffced3867a2a074ab739461ac1731a7547f11766f3",
+    "field": "meta.emptySeedControl"
+  },
+  "record": {
+    "at": "2026-10-13T11:59:10.814Z",
+    "request": {
+      "method": "POST",
+      "path": "/change_seed",
+      "body": {
+        "gameType": "coinflip",
+        "clientSeed": ""
+      }
+    },
+    "seedsBeforeReadAt": "2026-10-13T11:59:12.144Z",
+    "seedsBefore": {
+      "clientSeed": "pfcoin6719f960c19b1f0a6a769a41daaf1f39",
+      "hashedServerSeed": "e94359e63ef76ca57e809e10a047cbfbf343f5d190bfdb349e35ece0b681a2b4",
+      "hashedNextServerSeed": "e2347083b2110637e848d723e1d8c66550c556e464f1df6bfd32ef1c5e0f5d04",
+      "lastSeed": "",
+      "nonce": 0,
+      "totalBets": 0,
+      "cursor": 0,
+      "id": 103008
+    },
+    "answeredAt": "2026-10-13T11:59:12.382Z",
+    "status": 400,
+    "outcome": "refused",
+    "body": {
+      "error": "an error occurred"
+    },
+    "message": "POST /change_seed 400: {\"error\":\"an error occurred\"}"
+  }
+}
